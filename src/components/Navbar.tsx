@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, X, Building2, Home } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,14 +25,9 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <a href="#" className="flex items-center">
-          <div className="flex items-center gap-2">
-            <div className="bg-brand-blue rounded-lg p-1.5">
-              <Building2 size={20} className="text-white" />
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="text-2xl font-bold tracking-tighter text-brand-gray-dark">14U</span>
-              <span className="text-[10px] text-brand-gray tracking-widest uppercase">Real Estate</span>
-            </div>
+          <div className="flex flex-col">
+            <span className="text-2xl font-bold tracking-tight text-brand-gray-dark">14U</span>
+            <span className="text-[10px] text-brand-gray tracking-widest uppercase">Real Estate</span>
           </div>
         </a>
         

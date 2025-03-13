@@ -1,5 +1,5 @@
 
-import { Facebook, Instagram, Linkedin, Twitter, Building2 } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,12 +9,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
-            <div className="mb-6 flex items-center gap-2">
-              <div className="bg-brand-blue rounded-lg p-1.5">
-                <Building2 size={20} className="text-white" />
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="text-2xl font-bold tracking-tighter text-white">14U</span>
+            <div className="mb-6">
+              <div className="flex flex-col">
+                <span className="text-2xl font-bold tracking-tight text-white">14U</span>
                 <span className="text-[10px] text-gray-400 tracking-widest uppercase">Real Estate</span>
               </div>
             </div>
