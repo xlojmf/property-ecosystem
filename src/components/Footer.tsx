@@ -70,9 +70,9 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-6">Contacto</h3>
             <ul className="space-y-4 text-gray-400">
-              <li>Avenida Principal, 123</li>
-              <li>Lisboa, 1000-000</li>
-              <li>info@14u.pt</li>
+              <li>Rua dos Choupos, n.° 158</li>
+              <li>4100-160 Porto</li>
+              <li>oneforu@protonmail.com</li>
               <li>+351 910 000 000</li>
             </ul>
           </div>

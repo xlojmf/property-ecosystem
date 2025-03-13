@@ -99,15 +99,6 @@ const Index = () => {
               </div>
             ))}
           </div>
-          
-          <div className="mt-12">
-            <a 
-              href="#" 
-              className="bg-brand-gray-light hover:bg-brand-gray-light/80 text-brand-gray-dark px-8 py-3 rounded-full text-lg font-medium transition-all inline-flex items-center gap-2"
-            >
-              Ver Todos os Imóveis
-            </a>
-          </div>
         </div>
       </div>
       
@@ -128,7 +119,7 @@ const Index = () => {
                 <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-lg max-w-xs">
                   <div className="flex items-center justify-center gap-4">
                     <div className="bg-brand-blue/10 p-3 rounded-full">
-                      <span className="text-3xl font-bold text-brand-blue">10+</span>
+                      <span className="text-3xl font-bold text-brand-blue">5+</span>
                     </div>
                     <p className="text-brand-gray-dark">Anos de experiência no mercado imobiliário</p>
                   </div>
@@ -145,7 +136,7 @@ const Index = () => {
                 A 14U é uma empresa especializada em serviços imobiliários, oferecendo soluções completas que vão desde a compra e venda até à administração e manutenção de propriedades.
               </p>
               <p className="text-brand-gray text-lg mb-8 leading-relaxed">
-                Com mais de uma década de experiência no mercado, destacamo-nos pela excelência nos serviços prestados e pelo compromisso com a satisfação dos nossos clientes.
+                Com mais de 5 anos de experiência no mercado, destacamo-nos pela excelência nos serviços prestados e pelo compromisso com a satisfação dos nossos clientes.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
