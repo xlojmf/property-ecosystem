@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import { TreePine, Trees, Home } from 'lucide-react';
 
 const Index = () => {
   useEffect(() => {
@@ -34,22 +35,22 @@ const Index = () => {
       <Hero />
       <div id="properties" className="py-24 px-6">
         <div className="max-w-7xl mx-auto text-center">
-          <span className="text-brand-blue text-sm font-medium uppercase tracking-wider">Empreendimentos</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-10 text-brand-gray-dark">Imóveis em Destaque</h2>
+          <span className="text-brand-blue text-sm font-medium uppercase tracking-wider">Hospedagem</span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-10 text-brand-gray-dark">Bungalows de Madeira</h2>
           
           <div className="relative rounded-3xl overflow-hidden shadow-lg h-[600px] mb-10">
             <img 
-              src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b?auto=format&fit=crop&q=80&w=1920" 
-              alt="Luxury Building" 
+              src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?auto=format&fit=crop&q=80&w=1920" 
+              alt="Wooden Bungalow" 
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end text-left p-8 md:p-12">
               <span className="bg-brand-blue/90 text-white text-sm font-medium px-4 py-1 rounded-full inline-block mb-4">
-                Empreendimento em Destaque
+                Projeto em Destaque
               </span>
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">Edifício Horizonte</h3>
+              <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">Eco Resort</h3>
               <p className="text-white/90 mb-6 max-w-xl">
-                Um conceito inovador de habitação urbana, com acabamentos premium e vistas deslumbrantes sobre a cidade.
+                Um conceito inovador de hospedagem sustentável, com bungalows de madeira premium e vistas deslumbrantes para a natureza.
               </p>
               <a 
                 href="#" 
@@ -61,32 +62,48 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((index) => (
+            {[
+              {
+                image: "https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&q=80&w=800",
+                icon: TreePine,
+                title: "Bungalow Floresta",
+                description: "Cabana de madeira luxuosa imersa na floresta, oferecendo privacidade e conexão com a natureza."
+              },
+              {
+                image: "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&q=80&w=800",
+                icon: Trees,
+                title: "Bungalow Riverside",
+                description: "Acomodação premium à beira do rio, com terraço privativo e vista panorâmica."
+              },
+              {
+                image: "https://images.unsplash.com/photo-1551927336-09d50efd69cd?auto=format&fit=crop&q=80&w=800",
+                icon: Home,
+                title: "Bungalow Família",
+                description: "Espaçoso bungalow de madeira ideal para famílias, com dois quartos e área de estar ampla."
+              }
+            ].map((item, index) => (
               <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group reveal-on-scroll">
                 <div className="h-64 overflow-hidden">
                   <img 
-                    src={`https://images.unsplash.com/photo-${index === 1 ? '1493397212122-2b85dda8106b' : index === 2 ? '1460574283810-2aab119d8511' : '1721322800607-8c38375eef04'}?auto=format&fit=crop&q=80&w=800`} 
-                    alt={`Property ${index}`} 
+                    src={item.image} 
+                    alt={item.title} 
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 <div className="p-6">
-                  <span className="text-brand-blue text-xs font-medium uppercase tracking-wider">
-                    {index === 1 ? 'Apartamento' : index === 2 ? 'Escritório' : 'Moradia'}
-                  </span>
-                  <h3 className="text-xl font-semibold mt-2 mb-1 text-brand-gray-dark">
-                    {index === 1 ? 'Apartamento T3 Centro' : index === 2 ? 'Escritório Moderno' : 'Moradia de Luxo'}
-                  </h3>
-                  <p className="text-brand-gray line-clamp-2 mb-4">
-                    {index === 1 
-                      ? 'Espaço moderno e funcional, localizado no centro da cidade.' 
-                      : index === 2 
-                        ? 'Espaço corporativo premium com acabamentos de alto padrão.' 
-                        : 'Vivenda com jardim, piscina e acabamentos de luxo.'}
-                  </p>
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="bg-brand-blue/10 p-2 rounded-full">
+                      <item.icon size={16} className="text-brand-blue" />
+                    </div>
+                    <span className="text-brand-blue text-xs font-medium uppercase tracking-wider">
+                      Bungalow
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-semibold mt-2 mb-1 text-brand-gray-dark">{item.title}</h3>
+                  <p className="text-brand-gray line-clamp-2 mb-4">{item.description}</p>
                   <div className="flex justify-between items-end">
                     <span className="text-brand-gray-dark font-bold">
-                      {index === 1 ? '€350,000' : index === 2 ? '€2,500/mês' : '€750,000'}
+                      {index === 0 ? '€180/noite' : index === 1 ? '€220/noite' : '€250/noite'}
                     </span>
                     <a 
                       href="#" 

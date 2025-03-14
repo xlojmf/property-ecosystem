@@ -27,7 +27,7 @@ const Navbar = () => {
         <a href="#" className="group">
           <div className="flex flex-col transition-all duration-300">
             <span className="text-2xl font-bold tracking-tight text-brand-gray-dark group-hover:text-brand-blue transition-colors duration-300">14U</span>
-            <span className="text-[10px] text-brand-gray tracking-widest uppercase transition-colors duration-300">Real Estate</span>
+            <span className="text-[10px] text-brand-gray tracking-widest uppercase transition-colors duration-300">Consultoria</span>
           </div>
         </a>
         

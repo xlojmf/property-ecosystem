@@ -1,6 +1,6 @@
 
 import { useRef, useEffect } from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 
 const ContactSection = () => {
   const sectionRef = useRef(null);
@@ -33,7 +33,7 @@ const ContactSection = () => {
           <span className="text-brand-blue text-sm font-medium uppercase tracking-wider">Entre em Contacto</span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-brand-gray-dark tracking-tight">Fale Connosco</h2>
           <p className="text-brand-gray text-lg max-w-2xl mx-auto">
-            Estamos disponíveis para esclarecer todas as suas dúvidas e ajudar em qualquer questão imobiliária.
+            Estamos disponíveis para esclarecer todas as suas dúvidas e ajudar em qualquer questão de consultoria.
           </p>
         </div>
         
@@ -42,8 +42,7 @@ const ContactSection = () => {
           <div className="space-y-10">
             {[
               { icon: MapPin, title: "Morada", content: ["Rua dos Choupos, n.° 158", "4100-160 Porto"] },
-              { icon: Mail, title: "Email", content: ["oneforu@protonmail.com"] },
-              { icon: Phone, title: "Telefone", content: ["+351 910 000 000"] }
+              { icon: Mail, title: "Email", content: ["oneforu@protonmail.com"] }
             ].map((item, index) => (
               <div key={index} className="flex items-start gap-6">
                 <div className="bg-brand-gray-light/50 p-4 rounded-xl">
@@ -57,22 +56,6 @@ const ContactSection = () => {
                 </div>
               </div>
             ))}
-            
-            <div className="mt-10 pt-10 border-t border-gray-100">
-              <h4 className="font-medium text-brand-gray-dark mb-6">Horário de Funcionamento</h4>
-              <div className="space-y-3 text-brand-gray">
-                {[
-                  { day: "Segunda a Sexta", hours: "9:00 - 18:00" },
-                  { day: "Sábado", hours: "10:00 - 15:00" },
-                  { day: "Domingo", hours: "Fechado" }
-                ].map((schedule, index) => (
-                  <p key={index} className="flex justify-between">
-                    <span>{schedule.day}</span>
-                    <span>{schedule.hours}</span>
-                  </p>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>

@@ -1,4 +1,3 @@
-
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 const Footer = () => {
@@ -12,7 +11,7 @@ const Footer = () => {
             <div className="mb-8">
               <div className="flex flex-col">
                 <span className="text-2xl font-bold tracking-tight text-white">14U</span>
-                <span className="text-[10px] text-gray-400 tracking-widest uppercase">Real Estate</span>
+                <span className="text-[10px] text-gray-400 tracking-widest uppercase">Consultoria</span>
               </div>
             </div>
             <p className="text-gray-400 mb-8 max-w-xs leading-relaxed">
@@ -63,7 +62,6 @@ const Footer = () => {
               <li>Rua dos Choupos, n.° 158</li>
               <li>4100-160 Porto</li>
               <li>oneforu@protonmail.com</li>
-              <li>+351 910 000 000</li>
             </ul>
           </div>
         </div>
