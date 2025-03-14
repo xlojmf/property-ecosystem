@@ -5,7 +5,7 @@ import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
-import { TreePine, Trees, Home } from 'lucide-react';
+import { Building2, Home, MapPin } from 'lucide-react';
 
 const Index = () => {
   useEffect(() => {
@@ -35,22 +35,22 @@ const Index = () => {
       <Hero />
       <div id="properties" className="py-24 px-6">
         <div className="max-w-7xl mx-auto text-center">
-          <span className="text-brand-blue text-sm font-medium uppercase tracking-wider">Hospedagem</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-10 text-brand-gray-dark">Bungalows de Madeira</h2>
+          <span className="text-brand-blue text-sm font-medium uppercase tracking-wider">Propriedades</span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-10 text-brand-gray-dark">Empreendimentos em Destaque</h2>
           
           <div className="relative rounded-3xl overflow-hidden shadow-lg h-[600px] mb-10">
             <img 
-              src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?auto=format&fit=crop&q=80&w=1920" 
-              alt="Wooden Bungalow" 
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920" 
+              alt="Modern Building" 
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end text-left p-8 md:p-12">
               <span className="bg-brand-blue/90 text-white text-sm font-medium px-4 py-1 rounded-full inline-block mb-4">
                 Projeto em Destaque
               </span>
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">Eco Resort</h3>
+              <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">Business Tower</h3>
               <p className="text-white/90 mb-6 max-w-xl">
-                Um conceito inovador de hospedagem sustentável, com bungalows de madeira premium e vistas deslumbrantes para a natureza.
+                Um empreendimento de luxo localizado no centro empresarial da cidade, oferecendo espaços premium para escritórios e comércio.
               </p>
               <a 
                 href="#" 
@@ -64,22 +64,22 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                image: "https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&q=80&w=800",
-                icon: TreePine,
-                title: "Bungalow Floresta",
-                description: "Cabana de madeira luxuosa imersa na floresta, oferecendo privacidade e conexão com a natureza."
+                image: "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&q=80&w=800",
+                icon: Building2,
+                title: "Residence Plaza",
+                description: "Apartamentos de luxo com acabamentos premium e tecnologia integrada, localizados em área nobre."
               },
               {
-                image: "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&q=80&w=800",
-                icon: Trees,
-                title: "Bungalow Riverside",
-                description: "Acomodação premium à beira do rio, com terraço privativo e vista panorâmica."
+                image: "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&q=80&w=800",
+                icon: MapPin,
+                title: "Commercial Hub",
+                description: "Espaços comerciais estrategicamente localizados com alta visibilidade e tráfego contínuo."
               },
               {
-                image: "https://images.unsplash.com/photo-1551927336-09d50efd69cd?auto=format&fit=crop&q=80&w=800",
+                image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800",
                 icon: Home,
-                title: "Bungalow Família",
-                description: "Espaçoso bungalow de madeira ideal para famílias, com dois quartos e área de estar ampla."
+                title: "Luxury Villas",
+                description: "Residências exclusivas com piscina privativa, jardins amplos e segurança 24 horas."
               }
             ].map((item, index) => (
               <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group reveal-on-scroll">
@@ -96,14 +96,14 @@ const Index = () => {
                       <item.icon size={16} className="text-brand-blue" />
                     </div>
                     <span className="text-brand-blue text-xs font-medium uppercase tracking-wider">
-                      Bungalow
+                      Propriedade
                     </span>
                   </div>
                   <h3 className="text-xl font-semibold mt-2 mb-1 text-brand-gray-dark">{item.title}</h3>
                   <p className="text-brand-gray line-clamp-2 mb-4">{item.description}</p>
                   <div className="flex justify-between items-end">
                     <span className="text-brand-gray-dark font-bold">
-                      {index === 0 ? '€180/noite' : index === 1 ? '€220/noite' : '€250/noite'}
+                      {index === 0 ? '€350.000' : index === 1 ? '€420.000' : '€580.000'}
                     </span>
                     <a 
                       href="#" 
