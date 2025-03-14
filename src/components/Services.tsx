@@ -31,12 +31,12 @@ const ServiceCard = ({ icon: Icon, title, description, delay = 0 }) => {
   return (
     <div 
       ref={cardRef}
-      className="reveal-on-scroll bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-brand-blue/20 group"
+      className="reveal-on-scroll bg-white rounded-2xl p-8 shadow-sm hover-scale border border-gray-50 group"
     >
-      <div className="mb-5 bg-brand-gray-light p-4 rounded-xl inline-flex group-hover:bg-brand-blue/10 transition-colors duration-300">
+      <div className="mb-6 bg-brand-gray-light/50 p-5 rounded-xl inline-flex group-hover:bg-brand-blue/5 transition-colors duration-500">
         <Icon size={24} className="text-brand-blue" />
       </div>
-      <h3 className="text-xl font-semibold mb-3 text-brand-gray-dark group-hover:text-brand-blue transition-colors duration-300">{title}</h3>
+      <h3 className="text-xl font-medium mb-4 text-brand-gray-dark group-hover:text-brand-blue transition-colors duration-300">{title}</h3>
       <p className="text-brand-gray leading-relaxed">{description}</p>
     </div>
   );
@@ -100,12 +100,12 @@ const Services = () => {
   ];
   
   return (
-    <section id="services" className="py-24 px-6 bg-gradient-to-b from-white to-gray-50">
+    <section id="services" className="py-32 px-6 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto">
-        <div ref={sectionRef} className="reveal-on-scroll text-center mb-16">
+        <div ref={sectionRef} className="reveal-on-scroll text-center mb-20">
           <span className="text-brand-blue text-sm font-medium uppercase tracking-wider">Nossas Especialidades</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-brand-gray-dark">Áreas de Atividade</h2>
-          <p className="text-brand-gray text-lg max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-brand-gray-dark tracking-tight">Áreas de Atividade</h2>
+          <p className="text-brand-gray text-lg max-w-2xl mx-auto">
             Oferecemos um conjunto completo de serviços imobiliários para atender a todas as suas necessidades,
             desde a aquisição até à gestão e manutenção.
           </p>

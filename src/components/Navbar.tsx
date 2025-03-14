@@ -19,32 +19,29 @@ const Navbar = () => {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 md:px-10 py-4",
-        isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm" : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 md:px-10 py-4",
+        isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <a href="#" className="flex items-center">
-          <div className="flex flex-col">
-            <span className="text-2xl font-bold tracking-tight text-brand-gray-dark">14U</span>
-            <span className="text-[10px] text-brand-gray tracking-widest uppercase">Real Estate</span>
+        <a href="#" className="group">
+          <div className="flex flex-col transition-all duration-300">
+            <span className="text-2xl font-bold tracking-tight text-brand-gray-dark group-hover:text-brand-blue transition-colors duration-300">14U</span>
+            <span className="text-[10px] text-brand-gray tracking-widest uppercase transition-colors duration-300">Real Estate</span>
           </div>
         </a>
         
-        <div className="hidden md:flex items-center space-x-8">
-          <nav className="flex items-center space-x-6">
-            <a href="#services" className="text-brand-gray-dark hover:text-brand-blue transition-colors text-sm font-medium">
-              Serviços
-            </a>
-            <a href="#properties" className="text-brand-gray-dark hover:text-brand-blue transition-colors text-sm font-medium">
-              Imóveis
-            </a>
-            <a href="#about" className="text-brand-gray-dark hover:text-brand-blue transition-colors text-sm font-medium">
-              Sobre Nós
-            </a>
-            <a href="#contact" className="text-brand-gray-dark hover:text-brand-blue transition-colors text-sm font-medium">
-              Contacto
-            </a>
+        <div className="hidden md:flex items-center space-x-10">
+          <nav className="flex items-center space-x-8">
+            {['Serviços', 'Imóveis', 'Sobre Nós', 'Contacto'].map((item, index) => (
+              <a 
+                key={index}
+                href={`#${['services', 'properties', 'about', 'contact'][index]}`} 
+                className="text-brand-gray-dark hover:text-brand-blue transition-colors duration-300 text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-brand-blue after:origin-bottom-right after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 hover:after:origin-bottom-left"
+              >
+                {item}
+              </a>
+            ))}
           </nav>
         </div>
         
@@ -57,47 +54,29 @@ const Navbar = () => {
         
         {/* Mobile Menu */}
         <div className={cn(
-          "fixed inset-0 bg-white z-50 flex flex-col p-10 transition-transform duration-300 ease-in-out",
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          "fixed inset-0 bg-white/90 backdrop-blur-xl z-50 flex flex-col p-10 transition-all duration-500 ease-in-out",
+          isMobileMenuOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"
         )}>
           <div className="flex justify-end">
             <button 
-              className="text-brand-gray-dark focus:outline-none" 
+              className="text-brand-gray-dark focus:outline-none transition-opacity duration-300 hover:opacity-70" 
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <X size={24} />
             </button>
           </div>
           
-          <div className="flex flex-col space-y-8 items-center justify-center flex-grow">
-            <a 
-              href="#services" 
-              className="text-2xl font-medium text-brand-gray-dark"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Serviços
-            </a>
-            <a 
-              href="#properties" 
-              className="text-2xl font-medium text-brand-gray-dark"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Imóveis
-            </a>
-            <a 
-              href="#about" 
-              className="text-2xl font-medium text-brand-gray-dark"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Sobre Nós
-            </a>
-            <a 
-              href="#contact" 
-              className="text-2xl font-medium text-brand-gray-dark"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Contacto
-            </a>
+          <div className="flex flex-col space-y-10 items-center justify-center flex-grow">
+            {['Serviços', 'Imóveis', 'Sobre Nós', 'Contacto'].map((item, index) => (
+              <a 
+                key={index}
+                href={`#${['services', 'properties', 'about', 'contact'][index]}`} 
+                className="text-2xl font-medium text-brand-gray-dark transition-colors duration-300 hover:text-brand-blue"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item}
+              </a>
+            ))}
           </div>
         </div>
       </div>

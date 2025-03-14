@@ -1,9 +1,10 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const heroContentRef = useRef(null);
   
   useEffect(() => {
     setIsLoaded(true);
@@ -11,9 +12,16 @@ const Hero = () => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const heroSection = document.getElementById('hero');
+      const heroContent = heroContentRef.current;
+      
       if (heroSection) {
         const opacity = 1 - (scrollY * 1.5) / window.innerHeight;
         heroSection.style.opacity = Math.max(opacity, 0).toString();
+      }
+      
+      if (heroContent) {
+        const translateY = scrollY * 0.3;
+        heroContent.style.transform = `translateY(${translateY}px)`;
       }
     };
     
@@ -38,31 +46,28 @@ const Hero = () => {
         backgroundPosition: 'center',
       }}
     >
-      <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px]"></div>
+      <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]"></div>
       
-      <div className={`relative z-10 text-center px-6 max-w-4xl transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-        <div className="bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-3xl">
-          <span className="inline-block text-white/80 text-sm uppercase tracking-wider mb-4 border border-white/20 rounded-full px-4 py-1">
+      <div 
+        ref={heroContentRef}
+        className={`relative z-10 text-center px-6 max-w-4xl transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+      >
+        <div className="glass-morphism p-8 md:p-12 rounded-3xl bg-white/5 backdrop-blur-lg border border-white/10">
+          <span className="inline-block text-white/90 text-sm uppercase tracking-wider mb-6 px-4 py-1">
             Excelência Imobiliária
           </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 tracking-tighter leading-tight">
             Transformamos Espaços em <br /> Experiências Excepcionais
           </h1>
-          <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-8">
+          <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-10">
             Somos especialistas em imobiliário, oferecendo serviços completos desde a compra e venda até à gestão e manutenção de propriedades.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8">
             <a
               href="#contact"
-              className="bg-brand-blue hover:bg-brand-blue/90 text-white px-8 py-3 rounded-full text-lg font-medium transition-all transform hover:scale-[1.03]"
+              className="backdrop-blur-md bg-white/10 border border-white/20 text-white px-8 py-3 rounded-full text-lg font-medium transition-all transform hover:scale-[1.02] hover:bg-white/20"
             >
               Contacte-nos
-            </a>
-            <a
-              href="#services"
-              className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 px-8 py-3 rounded-full text-lg font-medium transition-all transform hover:scale-[1.03]"
-            >
-              Nossos Serviços
             </a>
           </div>
         </div>
@@ -70,7 +75,7 @@ const Hero = () => {
       
       <button 
         onClick={scrollToServices}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce z-10"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce z-10 transition-opacity hover:opacity-80"
         aria-label="Scroll to services"
       >
         <ChevronDown size={32} />
