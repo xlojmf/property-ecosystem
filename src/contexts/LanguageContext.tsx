@@ -77,7 +77,6 @@ const translations: TranslationsType = {
   'building-maintenance': { pt: 'Manutenção de Edifícios', en: 'Building Maintenance' },
   'explore': { pt: 'Explorar', en: 'Explore' },
   'about-us-footer': { pt: 'Sobre Nós', en: 'About Us' },
-  'properties': { pt: 'Imóveis', en: 'Properties' },
   'projects': { pt: 'Projetos', en: 'Projects' },
   'blog': { pt: 'Blog', en: 'Blog' },
   'contact-footer': { pt: 'Contacto', en: 'Contact' },
