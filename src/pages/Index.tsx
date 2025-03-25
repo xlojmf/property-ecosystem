@@ -5,8 +5,11 @@ import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Index = () => {
+  const { t } = useLanguage();
+
   useEffect(() => {
     // Reveal elements on scroll
     const revealElements = document.querySelectorAll('.reveal-on-scroll');
@@ -52,22 +55,22 @@ const Index = () => {
                     <div className="bg-brand-blue/10 p-3 rounded-full">
                       <span className="text-3xl font-bold text-brand-blue">5+</span>
                     </div>
-                    <p className="text-brand-gray-dark">Anos de experiência no mercado imobiliário</p>
+                    <p className="text-brand-gray-dark">{t('years-experience')}</p>
                   </div>
                 </div>
               </div>
             </div>
             
             <div className="reveal-on-scroll">
-              <span className="text-brand-blue text-sm font-medium uppercase tracking-wider">Sobre Nós</span>
+              <span className="text-brand-blue text-sm font-medium uppercase tracking-wider">{t('about-us')}</span>
               <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-brand-gray-dark">
-                Quem Somos
+                {t('who-we-are')}
               </h2>
               <p className="text-brand-gray text-lg mb-6 leading-relaxed">
-                A 14U é uma empresa especializada em serviços imobiliários, oferecendo soluções completas que vão desde a compra e venda até à administração e manutenção de propriedades.
+                {t('about-desc-1')}
               </p>
               <p className="text-brand-gray text-lg mb-8 leading-relaxed">
-                Com mais de 5 anos de experiência no mercado, destacamo-nos pela excelência nos serviços prestados e pelo compromisso com a satisfação dos nossos clientes.
+                {t('about-desc-2')}
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
@@ -78,8 +81,8 @@ const Index = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-medium text-brand-gray-dark mb-1">Profissionalismo</h4>
-                    <p className="text-brand-gray text-sm">Abordagem profissional em todos os aspectos do nosso trabalho.</p>
+                    <h4 className="font-medium text-brand-gray-dark mb-1">{t('professionalism')}</h4>
+                    <p className="text-brand-gray text-sm">{t('professionalism-desc')}</p>
                   </div>
                 </div>
                 
@@ -90,8 +93,8 @@ const Index = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-medium text-brand-gray-dark mb-1">Inovação</h4>
-                    <p className="text-brand-gray text-sm">Soluções criativas e inovadoras para cada projeto.</p>
+                    <h4 className="font-medium text-brand-gray-dark mb-1">{t('innovation')}</h4>
+                    <p className="text-brand-gray text-sm">{t('innovation-desc')}</p>
                   </div>
                 </div>
                 
@@ -102,8 +105,8 @@ const Index = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-medium text-brand-gray-dark mb-1">Excelência</h4>
-                    <p className="text-brand-gray text-sm">Compromisso com a qualidade em todos os detalhes.</p>
+                    <h4 className="font-medium text-brand-gray-dark mb-1">{t('excellence-value')}</h4>
+                    <p className="text-brand-gray text-sm">{t('excellence-desc')}</p>
                   </div>
                 </div>
                 
@@ -114,8 +117,8 @@ const Index = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-medium text-brand-gray-dark mb-1">Confiança</h4>
-                    <p className="text-brand-gray text-sm">Relações baseadas na transparência e confiança.</p>
+                    <h4 className="font-medium text-brand-gray-dark mb-1">{t('trust')}</h4>
+                    <p className="text-brand-gray text-sm">{t('trust-desc')}</p>
                   </div>
                 </div>
               </div>
@@ -124,7 +127,7 @@ const Index = () => {
                 href="#contact" 
                 className="bg-brand-blue hover:bg-brand-blue/90 text-white px-8 py-3 rounded-full text-lg font-medium transition-all transform hover:scale-[1.03] inline-block"
               >
-                Fale Connosco
+                {t('contact-us')}
               </a>
             </div>
           </div>

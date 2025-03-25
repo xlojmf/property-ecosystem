@@ -2,10 +2,12 @@
 import { useEffect, useState, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const heroContentRef = useRef(null);
+  const { t } = useLanguage();
   
   useEffect(() => {
     setIsLoaded(true);
@@ -55,13 +57,13 @@ const Hero = () => {
       >
         <div className="glass-morphism p-8 md:p-12 rounded-3xl bg-white/5 backdrop-blur-lg border border-white/10">
           <span className="inline-block text-white/90 text-sm uppercase tracking-wider mb-6 px-4 py-1">
-            Excelência em Consultoria
+            {t('excellence')}
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 tracking-tighter leading-tight">
-            Transformamos Espaços em <br /> Experiências Excepcionais
+            {t('transform-spaces')}
           </h1>
           <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-10">
-            Somos especialistas em consultoria, oferecendo serviços completos desde a idealização até à gestão e manutenção de projetos.
+            {t('experts')}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8">
             <Button
@@ -71,7 +73,7 @@ const Hero = () => {
               className="rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all transform hover:scale-[1.02]"
             >
               <a href="#contact">
-                Contacte-nos
+                {t('contact-us')}
               </a>
             </Button>
           </div>

@@ -1,7 +1,10 @@
+
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
   
   return (
     <footer className="bg-brand-gray-dark text-white py-20 px-6">
@@ -15,7 +18,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-400 mb-8 max-w-xs leading-relaxed">
-              Transformamos espaços em experiências excepcionais, oferecendo serviços imobiliários completos e personalizados.
+              {t('transform-spaces-footer')}
             </p>
             <div className="flex space-x-5">
               {[Facebook, Instagram, Twitter, Linkedin].map((Icon, index) => (
@@ -31,12 +34,17 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-medium mb-8 tracking-tight">Serviços</h3>
+            <h3 className="text-lg font-medium mb-8 tracking-tight">{t('services-footer')}</h3>
             <ul className="space-y-5">
-              {["Compra e Venda", "Administração e Arrendamento", "Administração de Condomínios", "Manutenção de Edifícios"].map((item, index) => (
+              {[
+                { key: 'buy-sell-footer' },
+                { key: 'admin-rental-footer' },
+                { key: 'condo-admin-footer' },
+                { key: 'building-maintenance' }
+              ].map((item, index) => (
                 <li key={index}>
                   <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                    {item}
+                    {t(item.key)}
                   </a>
                 </li>
               ))}
@@ -44,12 +52,17 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-medium mb-8 tracking-tight">Explorar</h3>
+            <h3 className="text-lg font-medium mb-8 tracking-tight">{t('explore')}</h3>
             <ul className="space-y-5">
-              {["Sobre Nós", "Imóveis", "Projetos", "Blog"].map((item, index) => (
+              {[
+                { key: 'about-us-footer' },
+                { key: 'properties' },
+                { key: 'projects' },
+                { key: 'blog' }
+              ].map((item, index) => (
                 <li key={index}>
                   <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                    {item}
+                    {t(item.key)}
                   </a>
                 </li>
               ))}
@@ -57,7 +70,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-medium mb-8 tracking-tight">Contacto</h3>
+            <h3 className="text-lg font-medium mb-8 tracking-tight">{t('contact-footer')}</h3>
             <ul className="space-y-5 text-gray-400">
               <li>Rua dos Choupos, n.° 158</li>
               <li>4100-160 Porto</li>
@@ -68,12 +81,16 @@ const Footer = () => {
         
         <div className="mt-20 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm mb-4 md:mb-0">
-            © {currentYear} 14U. Todos os direitos reservados.
+            © {currentYear} 14U. {t('rights-reserved')}
           </p>
           <div className="flex space-x-8">
-            {["Política de Privacidade", "Termos de Serviço", "Cookies"].map((item, index) => (
+            {[
+              { key: 'privacy-policy' },
+              { key: 'terms-of-service' },
+              { key: 'cookies' }
+            ].map((item, index) => (
               <a key={index} href="#" className="text-gray-500 hover:text-white text-sm transition-colors duration-300">
-                {item}
+                {t(item.key)}
               </a>
             ))}
           </div>

@@ -1,9 +1,11 @@
 
 import { useEffect, useRef } from 'react';
 import { Building, Home, Key, Map, Paintbrush, Ruler } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-const ServiceCard = ({ icon: Icon, title, description, delay = 0 }) => {
+const ServiceCard = ({ icon: Icon, titleKey, descriptionKey, delay = 0 }) => {
   const cardRef = useRef(null);
+  const { t } = useLanguage();
   
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -36,14 +38,15 @@ const ServiceCard = ({ icon: Icon, title, description, delay = 0 }) => {
       <div className="mb-6 bg-brand-gray-light/50 p-5 rounded-xl inline-flex group-hover:bg-brand-blue/5 transition-colors duration-500">
         <Icon size={24} className="text-brand-blue" />
       </div>
-      <h3 className="text-xl font-medium mb-4 text-brand-gray-dark group-hover:text-brand-blue transition-colors duration-300">{title}</h3>
-      <p className="text-brand-gray leading-relaxed">{description}</p>
+      <h3 className="text-xl font-medium mb-4 text-brand-gray-dark group-hover:text-brand-blue transition-colors duration-300">{t(titleKey)}</h3>
+      <p className="text-brand-gray leading-relaxed">{t(descriptionKey)}</p>
     </div>
   );
 };
 
 const Services = () => {
   const sectionRef = useRef(null);
+  const { t } = useLanguage();
   
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -69,33 +72,33 @@ const Services = () => {
   const services = [
     {
       icon: Home,
-      title: "Compra e Venda de Imóveis",
-      description: "Especialistas em transações imobiliárias, garantindo processos seguros e eficientes para compradores e vendedores."
+      titleKey: 'buy-sell',
+      descriptionKey: 'buy-sell-desc'
     },
     {
       icon: Key,
-      title: "Administração e Arrendamento",
-      description: "Gestão profissional de imóveis próprios e de terceiros, maximizando o retorno do seu investimento."
+      titleKey: 'admin-rental',
+      descriptionKey: 'admin-rental-desc'
     },
     {
       icon: Building,
-      title: "Administração de Condomínios",
-      description: "Soluções completas para a gestão eficaz e transparente de condomínios residenciais e comerciais."
+      titleKey: 'condo-admin',
+      descriptionKey: 'condo-admin-desc'
     },
     {
       icon: Map,
-      title: "Apoio aos Edifícios",
-      description: "Serviços de limpeza, manutenção de jardins e piscinas, garantindo o cuidado integral dos seus espaços."
+      titleKey: 'building-support',
+      descriptionKey: 'building-support-desc'
     },
     {
       icon: Ruler,
-      title: "Promoção Imobiliária",
-      description: "Desenvolvimento de projetos imobiliários inovadores, desde a concepção até à comercialização."
+      titleKey: 'real-estate-promotion',
+      descriptionKey: 'real-estate-promotion-desc'
     },
     {
       icon: Paintbrush,
-      title: "Consultoria e Design",
-      description: "Serviços especializados de consultoria, design e fotografia para valorizar e destacar os seus imóveis."
+      titleKey: 'consulting-design',
+      descriptionKey: 'consulting-design-desc'
     }
   ];
   
@@ -103,11 +106,10 @@ const Services = () => {
     <section id="services" className="py-32 px-6 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto">
         <div ref={sectionRef} className="reveal-on-scroll text-center mb-20">
-          <span className="text-brand-blue text-sm font-medium uppercase tracking-wider">Nossas Especialidades</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-brand-gray-dark tracking-tight">Áreas de Atividade</h2>
+          <span className="text-brand-blue text-sm font-medium uppercase tracking-wider">{t('our-specialties')}</span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-brand-gray-dark tracking-tight">{t('activity-areas')}</h2>
           <p className="text-brand-gray text-lg max-w-2xl mx-auto">
-            Oferecemos um conjunto completo de serviços imobiliários para atender a todas as suas necessidades,
-            desde a aquisição até à gestão e manutenção.
+            {t('services-desc')}
           </p>
         </div>
         
@@ -116,8 +118,8 @@ const Services = () => {
             <ServiceCard
               key={index}
               icon={service.icon}
-              title={service.title}
-              description={service.description}
+              titleKey={service.titleKey}
+              descriptionKey={service.descriptionKey}
               delay={index * 100}
             />
           ))}
