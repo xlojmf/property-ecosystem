@@ -1,90 +1,54 @@
 
-import { useEffect, useState, useRef } from 'react';
-import { ChevronDown } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Hero = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const heroContentRef = useRef(null);
-  
-  useEffect(() => {
-    setIsLoaded(true);
-    
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const heroSection = document.getElementById('hero');
-      const heroContent = heroContentRef.current;
-      
-      if (heroSection) {
-        const opacity = 1 - (scrollY * 1.5) / window.innerHeight;
-        heroSection.style.opacity = Math.max(opacity, 0).toString();
-      }
-      
-      if (heroContent) {
-        const translateY = scrollY * 0.3;
-        heroContent.style.transform = `translateY(${translateY}px)`;
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  
-  const scrollToServices = () => {
-    const servicesSection = document.getElementById('services');
-    if (servicesSection) {
-      servicesSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-  
+  const { t } = useLanguage();
+
   return (
-    <section 
-      id="hero" 
-      className="relative h-screen flex items-center justify-center overflow-hidden"
-      style={{ 
-        backgroundImage: "url('https://images.unsplash.com/photo-1460574283810-2aab119d8511?auto=format&fit=crop&q=80&w=1920')", 
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
-      <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]"></div>
+    <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-to-br from-slate-50 to-white overflow-hidden">
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.02] pointer-events-none"></div>
       
-      <div 
-        ref={heroContentRef}
-        className={`relative z-10 text-center px-6 max-w-4xl transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-      >
-        <div className="glass-morphism p-8 md:p-12 rounded-3xl bg-white/5 backdrop-blur-lg border border-white/10">
-          <span className="inline-block text-white/90 text-sm uppercase tracking-wider mb-6 px-4 py-1">
-            Excelência em Consultoria
-          </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 tracking-tighter leading-tight">
-            Transformamos Espaços em <br /> Experiências Excepcionais
-          </h1>
-          <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-10">
-            Somos especialistas em consultoria, oferecendo serviços completos desde a idealização até à gestão e manutenção de projetos.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8">
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all transform hover:scale-[1.02]"
-            >
-              <a href="#contact">
-                Contacte-nos
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="flex flex-col max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight text-brand-gray-dark mb-6">
+              <span className="text-brand-blue block">14U {t('Consultoria')}</span>
+              {t('Soluções Imobiliárias')} <br />
+              {t('Para Si e Para o Seu Negócio')}
+            </h1>
+            
+            <p className="text-brand-gray text-lg md:text-xl mb-10 leading-relaxed">
+              {t('Descubra como os nossos serviços de consultoria imobiliária podem alavancar os seus investimentos e garantir o sucesso dos seus projetos.')}
+            </p>
+            
+            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+              <a href="#services" className="bg-brand-blue hover:bg-brand-blue/90 text-white px-8 py-3 rounded-full text-lg font-medium transition-all transform hover:scale-[1.03]">
+                {t('Explorar Serviços')}
               </a>
-            </Button>
+              <a href="#contact" className="bg-transparent hover:bg-gray-100 text-brand-gray-dark border border-gray-300 px-8 py-3 rounded-full text-lg font-medium transition-all transform hover:scale-[1.03]">
+                {t('Fale Connosco')}
+              </a>
+            </div>
+          </div>
+          
+          <div className="hidden lg:block">
+            <div className="relative">
+              <div className="absolute -left-10 top-1/2 transform -translate-y-1/2 w-32 h-32 bg-brand-blue/10 rounded-full filter blur-3xl"></div>
+              <div className="absolute -right-10 bottom-10 w-40 h-40 bg-cyan-500/10 rounded-full filter blur-3xl"></div>
+              
+              <div className="bg-white w-full max-w-md mx-auto rounded-3xl shadow-2xl overflow-hidden relative z-10">
+                <img 
+                  src="https://images.unsplash.com/photo-1504494683949-7319a9ba12d1?auto=format&fit=crop&q=80" 
+                  alt="Modern Office Building" 
+                  className="w-full h-[600px] object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
+        
+        <div className="absolute -bottom-5 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
       </div>
-      
-      <button 
-        onClick={scrollToServices}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce z-10 transition-opacity hover:opacity-80"
-        aria-label="Scroll to services"
-      >
-        <ChevronDown size={32} />
-      </button>
     </section>
   );
 };
