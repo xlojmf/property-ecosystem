@@ -50,7 +50,6 @@ const translations = {
       pt: 'Avaliação profissional e detalhada do valor de mercado de imóveis, baseada em metodologias reconhecidas.' },
     
   // About section
-  'Sobre Nós': { en: 'About Us', pt: 'Sobre Nós' },
   'Quem Somos': { en: 'Who We Are', pt: 'Quem Somos' },
   'A 14U é uma empresa especializada em serviços imobiliários, oferecendo soluções completas que vão desde a compra e venda até à administração e manutenção de propriedades.': 
     { en: '14U is a company specialized in real estate services, offering complete solutions from buying and selling to property administration and maintenance.', 
@@ -90,9 +89,13 @@ const translations = {
   'Enviar Mensagem': { en: 'Send Message', pt: 'Enviar Mensagem' },
   'Localização': { en: 'Location', pt: 'Localização' },
   'Lisboa, Portugal': { en: 'Lisbon, Portugal', pt: 'Lisboa, Portugal' },
+  'Como podemos ajudar?': { en: 'How can we help?', pt: 'Como podemos ajudar?' },
+  'Informações de Contacto': { en: 'Contact Information', pt: 'Informações de Contacto' },
   
   // Footer
   'Todos os direitos reservados': { en: 'All rights reserved', pt: 'Todos os direitos reservados' },
+  'Links Rápidos': { en: 'Quick Links', pt: 'Links Rápidos' },
+  'Início': { en: 'Home', pt: 'Início' },
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
